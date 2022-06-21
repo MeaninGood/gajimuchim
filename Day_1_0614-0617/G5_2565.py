@@ -1,6 +1,8 @@
+# 전깃줄
+
 import sys
 input = sys.stdin.readline
-
+from pprint import pprint
 
 def dfs(cur, pre):
     if cur == n:
@@ -29,12 +31,16 @@ arr.sort()
 
 dp = [[-1 for _ in range(n + 1)] for _ in range(n + 1)]
 
-ans = -1000000
+
 tmp = []
 for i in range(n):
     tmp.append(arr[i][1])
     
 tmp.append(0)
+
+ans = -1000000
 ans = max(ans, dfs(0, -1))
 
 print(n - ans)
+print(arr)
+pprint(dp)

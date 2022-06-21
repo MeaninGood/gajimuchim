@@ -1,3 +1,5 @@
+# 줄 세우기
+
 import sys
 input = sys.stdin.readline
 
@@ -18,7 +20,6 @@ n, m = map(int, input().split())
 v = [[] for _ in range(n + 1)]
 visited = [False for _ in range(n + 1)]
 st = []
-
 
 for _ in range(m):
     a, b = map(int, input().split())

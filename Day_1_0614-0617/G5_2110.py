@@ -1,3 +1,5 @@
+# 공유기 설치
+
 import sys
 input = sys.stdin.readline
 
@@ -20,7 +22,7 @@ arr.sort()
 
 ans = 0
 s = 0
-e = 100000000000
+e = 1000000000000
 
 while s <= e:
     mid = (s + e) // 2

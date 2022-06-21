@@ -1,6 +1,8 @@
+# 평범한 배낭
+
 import sys
 input = sys.stdin.readline
-
+from pprint import pprint
 
 def recur(cur, w):
     if w > k:
@@ -22,3 +24,5 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 dp = [[-1 for i in range(k + 1)] for j in range(n + 1)]
 
 print(recur(0, 0))
+
+pprint(dp)
