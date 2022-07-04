@@ -1,16 +1,51 @@
+# 인접한 비트의 개수
+
+'''
+1. 0으로 끝나는 애들은 뒤에 0이 붙어도 변하지 않음.
+2. 1로 끝나는 애들은 뒤에 1이 붙으면 변함.
+3. k = 0인 애들 먼저 채워주기
+
+        0       1       2       3       4
+1      1,1
+2      2,1
+3      3,2
+4      5,3
+
+1의 0번 + 1번 인덱스 -> 2의 0번 인덱스
+1의 0번 인덱스 -> 2의 1번 인덱스
+
+
+나머지 자리 채워주기
+        0       1       2       3       4
+0      0,0     0,0     0,0     0,0     0,0
+1      1,1     0,0     0,0     0,0     0,0
+2      2,1     0,1     0,0     0,0     0,0
+3      3,2     1,1     0,1     0,0     0,0
+4      5,3     2,3     1,2     0,1     0,0
+
+3[1][0] = 2[1][0] + 2[1][1]
+3[1][2] = 2[0][1] + 2[1][0]
+'''
+
 import sys
-from pprint import pprint
 input = lambda : sys.stdin.readline().strip()
 
-dp = [[0 for i in range(101)] for j in range(101)]
+dp = [[[0, 0] for i in range(101)] for j in range(101)]
 
-dp[0][0] = 1
-for i in range(1, 101):
-    for j in range(1, i + 1):
-        dp[i][0] = 1
-        dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
+dp[1][0][0] = 1
+dp[1][0][1] = 1
+
+for i in range(2, 101):
+    dp[i][0][0] = dp[i - 1][0][0] + dp[i - 1][0][1]
+    dp[i][0][1] = dp[i - 1][0][0]
+    
+for i in range(2, 101):
+    for j in range(1, 101):
+        dp[i][j][0] = dp[i - 1][j][0] + dp[i - 1][j][1]
+        dp[i][j][1] = dp[i - 1][j - 1][1] + dp[i - 1][j][0]
         
 T = int(input())
 for tc in range(T):
-    a, b = map(int, input().split())
+    n, k = map(int, input().split())
     
+    print(sum(dp[n][k]))

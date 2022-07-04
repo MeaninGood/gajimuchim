@@ -1,3 +1,5 @@
+# 통나무 건너뛰기
+
 import sys
 input = lambda : sys.stdin.readline().strip()
 
