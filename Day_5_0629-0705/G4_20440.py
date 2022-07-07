@@ -16,13 +16,15 @@ for i in range(n):
     a, b = map(int, input().split())
     d[a] = d.get(a, 0) + 1
     d[b] = d.get(b, 0) - 1
-    
+
+print(d)
 arr = []
 for i in d:
     arr.append([i, d[i]])
     
 arr.sort(key = lambda x: x[0])
 
+print(arr)
 
 ans = 0
 s = 0
@@ -40,7 +42,7 @@ for time, cnt in arr:
     if not flag:            # 계속 감소할 수 있으므로 flag가 이미 False면 넘어가기
         continue
     
-    if cnt < 0:             # flag = True, cnt < 0일 때 e 갱신
+    if cnt < 0:             # flag = True, cnt < 0일 때 e 갱신 (감소하는 구간 시작!)
         flag = False
         e = time
 

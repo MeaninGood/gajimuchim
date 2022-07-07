@@ -16,7 +16,7 @@ for tc in range(T):
     arr = list(map(int, input().split()))
     
     arr.sort()
-    
+
     ans = -1 << 10
     
     for i in range(2, n)[::-1]:
