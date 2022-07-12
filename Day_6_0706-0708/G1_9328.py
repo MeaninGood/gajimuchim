@@ -1,3 +1,5 @@
+# 킹쇠
+
 # import sys
 # from collections import deque
 # input = lambda : sys.stdin.readline().strip()
@@ -150,7 +152,7 @@ for tc in range(T):
     arr = [['.' for _ in range(m + 2)]] + [['.'] + list(input()) + ['.'] for _ in range(n)]\
         + [['.' for _ in range(m + 2)]]
 
-    key = [input().upper() if 97 <= ord(input()) <= 122 else 0]
+    key = []
 
     print(key)
 
