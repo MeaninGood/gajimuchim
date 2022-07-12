@@ -1,5 +1,5 @@
 # 접두사
-
+ 
 import sys
 input = lambda : sys.stdin.readline().strip()
 
@@ -8,6 +8,7 @@ arr = [input() for _ in range(n)]
 
 # 알파벳순, 길이순 정렬
 arr.sort(key = lambda x: (x[0], len(x)))
+
 
 v = [0 for _ in range(n)]
 for i in range(n - 1):
