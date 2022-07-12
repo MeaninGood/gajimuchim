@@ -1,4 +1,4 @@
-# 45도
+# 45도 
 
 import sys
 input = lambda : sys.stdin.readline().strip()
