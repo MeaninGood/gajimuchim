@@ -1,4 +1,4 @@
-# 서강그라운드
+# 서강그라운드 
 
 import sys, heapq
 input = lambda : sys.stdin.readline().strip()

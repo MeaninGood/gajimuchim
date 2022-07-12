@@ -1,4 +1,4 @@
-# 좋은 수열
+# 좋은 수열 
 
 import sys
 input = lambda : sys.stdin.readline().strip()

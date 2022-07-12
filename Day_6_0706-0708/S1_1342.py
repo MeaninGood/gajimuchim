@@ -1,5 +1,5 @@
 # 행운의 문자열
-
+ 
 import sys
 input = lambda : sys.stdin.readline().strip()
 

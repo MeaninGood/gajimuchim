@@ -1,4 +1,4 @@
-# 팰린드롬 만들기
+# 팰린드롬 만들기 
 
 import sys
 input = lambda : sys.stdin.readline().strip()
