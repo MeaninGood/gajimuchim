@@ -3,70 +3,42 @@
 import sys
 input = lambda : sys.stdin.readline().strip()
 
-"""
-A___quick__brown__fox__jumps__over__the__lazy__dog
-
-
-Alpha__Beta__Gamma_Delta_Epsilon
-Alpha_Beta_Gamma__Delta__Epsilon
-
-"""
-
-# n, m = map(int, input().split())
-# words = [input() for _ in range(n)]
-
-# idx = 0
-# cnt = 0
-
-
-# if len(words) - 1 + cnt < m:
-#     pass
-
-# else:
-#     print(*arr, sep='')
-
-# # cnt = 0
-# # while cnt <= m:
-# #     for i in range(1, n):
-# #         if ord(arr[i - 1][0]) 
-
-# print(ord('A'), ord('Z'), ord('_'), ord('a'), ord('z'))
-
-
 n, m = map(int, input().split())
 words = [input() for _ in range(n)]
 
-arr = ['' for _ in range(n * 2 - 1)]
+cnt = m         # 밑 줄 몇 개 추가해야 하는지
 
-if n - m > 0:
-    idx = 0
-    tmp = []
-    for i in range(1, n):
-        tmp.append(ord(words[i][0]) - ord(words[i - 1][0]))
-    
-print(tmp)
+for i in words:
+    cnt -= len(i)
 
+tmp = cnt // (n - 1)    # 몫
+cnt = cnt % (n - 1)     # 나머지
+arr = ['' for _ in range(n * 2 - 1)]    # 밑줄 포함할 배열 생성
+arr[0] = words[0]   # 첫 배열값 고정
 
-#     for i in range(0, n * 2 - 1, 2):
-#         arr[i] = words[idx]
+idx = 1
+for i in range(2, n * 2 - 1, 2):
+    arr[i] = words[idx]         # 단어가 들어갈 위치에 단어 추가
+    arr[i - 1] = '_' * tmp      # 밑줄이 들어갈 위치에 몫만큼 밑줄 추가
+    idx += 1
+
+while cnt > 0:
+    for i in range(2, n * 2 - 1, 2):
+        if 'a' <= arr[i][0]:
+            arr[i - 1] += '_'
+            cnt -= 1
         
+        if cnt == 0:
+            print(*arr, sep='')
+            exit()
 
-# idx = 0
-# for i in range(0, n * 2 - 1, 2):
-#     arr[i] = words[idx]
-#     idx += 1
+    for i in range(2, n * 2 - 1, 2)[::-1]:
+        if arr[i][0] <= 'Z':
+            arr[i - 1] += '_'
+            cnt -= 1
 
+        if cnt == 0:
+            print(*arr, sep='')
+            exit()
 
-# print(arr)
-# mxcnt = -1000000
-# mncnt = 1000000
-
-# cnt = 0
-# mx = -10000000
-# for i in range(2, n * 2 - 1, 2):
-#     mx = max(mx, ord(arr[i][0]) - ord(arr[i - 2][0]))
-#     mxcnt = max(mxcnt, len(arr[i - 1]))
-#     mncnt = min(mncnt, len(arr[i - 1]))
-
-
-
+print(*arr, sep='')
