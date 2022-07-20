@@ -34,4 +34,5 @@ while idx > -1:
 
     idx -= 1
 
+print(arr)
 print(ans)
