@@ -72,3 +72,66 @@ for i in range(n):
             ans += 1
 
 print(ans)
+print(arr)
+
+
+# import sys
+# input = sys.stdin.readline
+
+# n, m = map(int, input().split())
+# queen = list(map(int, input().split()))
+# knight = list(map(int, input().split()))
+# pawn = list(map(int, input().split()))
+
+# chess = [[0] * m for _ in range(n)]
+
+# kx = [1, 2, 1, 2, -1, -2, -1, -2]
+# ky = [2, 1, -2, -1, 2, 1, -2, -1]
+
+# qx = [0, 0, 1, -1, 1, 1, -1, -1]
+# qy = [1, -1, 0, 0, 1, -1, 1, -1]
+
+# # 나이트 K
+# for k in range(knight[0]):
+#     x = knight[k * 2 + 1] - 1
+#     y = knight[k * 2 + 2] - 1
+#     chess[x][y] = 'K'
+#     for i in range(8):
+#         nx = kx[i]
+#         ny = ky[i]
+#         if 0 <= nx < n and 0 <= ny < m and chess[nx][ny] == 0:
+#             chess[nx][ny] = 'Kn'
+# # 폰 3
+# for p in range(pawn[0]):
+#     x = pawn[p * 2 + 1] - 1
+#     y = pawn[p * 2 + 2] - 1
+#     chess[x][y] = 'P'
+
+# # 퀸 4
+# for q in range(queen[0]):
+#     x = queen[q * 2 + 1] - 1
+#     y = queen[q * 2 + 2] - 1
+#     chess[x][y] = 'Q'
+
+# for i in range(n):
+#     for j in range(m):
+#         if chess[i][j] == 4:
+#             for k in range(8):
+#                 nx, ny = i, j
+#                 while 1:
+#                     nx += qx[k]
+#                     ny += qy[k]
+#                     if not (0 <= nx < n and 0 <= ny < m) or chess[nx][ny] == 'K' or chess[nx][ny] == 'Kn' or chess[nx][ny] == 'P':
+#                         break
+
+#                     chess[nx][ny] = 'Qu'
+
+
+# result = 0
+# for i in range(n):
+#     for j in range(m):
+#         if chess[i][j] == 0:
+#             result += 1
+
+# print(result)
+# print(chess)
