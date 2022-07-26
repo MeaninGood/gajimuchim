@@ -13,18 +13,13 @@ for i in range(2, n + 1): # 2번 건물부터
         st.append(i)
         continue
     
-    elif arr[st[-1]] > arr[i]: # 스택의 맨 윗 건물 높이 > 현재 건물 높이
-        num[i] = st[-1] # 가장 가까운 건물 + 낮은 건물로 일단 저장해 둠
-        cnt[i] = len(st) # 개수는 현재까지 스택에 쌓인 건물 개수
-    
-    elif arr[st[-1]] <= arr[i]: # 스택의 맨 윗 건물 높이 <= 현재 건물 높이
-        while len(st) > 0:  # 스택이 비기 전까지
-            if arr[st[-1]] > arr[i]: # 조건 만족하면 break
-                num[i] = st[-1]
-                cnt[i] = len(st)
-                break
+    while len(st) > 0:  # 스택이 비기 전까지
+        if arr[st[-1]] > arr[i]: # 스택의 맨 윗 건물 높이 > 현재 건물 높이
+            num[i] = st[-1] # 가장 가까운 건물 + 낮은 건물로 일단 저장해 둠
+            cnt[i] = len(st) # 개수는 현재까지 스택에 쌓인 건물 개수
+            break
 
-            st.pop() # 현재 건물보다 스택에 있는 애들 높이가 낮으면 계속 빼줌
+        st.pop() # 현재 건물보다 스택에 있는 애들 높이가 낮으면 계속 빼줌
 
     st.append(i)
 
@@ -33,30 +28,20 @@ for i in range(1, n)[::-1]:
     if not st:
         st.append(i)
         continue
-
-    elif arr[st[-1]] > arr[i]:
-        if num[i] == 0:
-            num[i] = st[-1]
-
-        elif num[i] != 0 and abs(i - st[-1]) < abs(num[i] - i):
-            num[i] = i
-
-        cnt[i] += len(st)
     
-    elif arr[st[-1]] <= arr[i]:
-        while len(st) > 0:
-            if arr[st[-1]] > arr[i] :
-                if num[i] == 0:
-                    num[i] = st[-1]
+    while len(st) > 0:
+        if arr[st[-1]] > arr[i] :
+            if num[i] == 0:
+                num[i] = st[-1]
 
-                elif num[i] != 0 and abs(i - st[-1]) < abs(num[i] - i):
-                    num[i] = i
+            elif num[i] != 0 and abs(i - st[-1]) < abs(num[i] - i):
+                num[i] = st[-1]
 
-                cnt[i] += len(st)
-                break
+            cnt[i] += len(st)
+            break
 
-            st.pop()
-
+        st.pop()
+    
     st.append(i)
 
 for i in range(1, n + 1):
