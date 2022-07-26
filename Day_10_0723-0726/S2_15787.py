@@ -22,7 +22,6 @@ x   = 10000000000000
 ~x  = 01111111111111
 +1  = 10000000000000
 &   = 10000000000000
-
 '''
 import sys
 input = lambda : sys.stdin.readline().strip()
@@ -30,8 +29,6 @@ input = lambda : sys.stdin.readline().strip()
 n, m = map(int, input().split())
 
 arr = [0 for i in range(n)]
-
-
 for i in range(m):
     tmp = list(map(int, input().split()))
 
